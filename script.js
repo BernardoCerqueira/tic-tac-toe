@@ -22,6 +22,7 @@ const evenTurn = 'O'
 let countTurns = 0
 let currentPlayer = ''
 let otherPlayer = ''
+let gameOver = false
 
 /*Setting functions to start and restart buttons*/
 startBtn.addEventListener('click', start)
@@ -40,6 +41,7 @@ function start(){
     ticTacToe.style.setProperty('display', 'grid')
     turn.style.setProperty('display', 'block')
 
+    gameOver = false
     currentPlayer = document.getElementById('player1-name').value
     otherPlayer = document.getElementById('player2-name').value
     checkEmptyNames()
@@ -78,7 +80,7 @@ keys.forEach(function(key){
 /*Checker functions*/
 function checkWinner(currentPlayer){
     /*Checking row wins*/
-    if(key1.innerText != '' && key1.innerText == key2.innerText && key1.innerText == key3.innerText){
+    if(!gameOver && !gameOver && key1.innerText != '' && key1.innerText == key2.innerText && key1.innerText == key3.innerText){
         key1.style.backgroundColor = 'green'
         key2.style.backgroundColor = 'green'
         key3.style.backgroundColor = 'green'
@@ -87,8 +89,9 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
-    if(key4.innerText != '' && key4.innerText == key5.innerText && key4.innerText == key6.innerText){
+    if(!gameOver && key4.innerText != '' && key4.innerText == key5.innerText && key4.innerText == key6.innerText){
         key4.style.backgroundColor = 'green'
         key5.style.backgroundColor = 'green'
         key6.style.backgroundColor = 'green'
@@ -97,8 +100,9 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
-    if(key7.innerText != '' && key7.innerText == key8.innerText && key7.innerText == key9.innerText){
+    if(!gameOver && key7.innerText != '' && key7.innerText == key8.innerText && key7.innerText == key9.innerText){
         key7.style.backgroundColor = 'green'
         key8.style.backgroundColor = 'green'
         key9.style.backgroundColor = 'green'
@@ -107,10 +111,11 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
 
     /*Checking col wins*/
-    if(key1.innerText != '' && key1.innerText == key4.innerText && key1.innerText == key7.innerText){
+    if(!gameOver && key1.innerText != '' && key1.innerText == key4.innerText && key1.innerText == key7.innerText){
         key1.style.backgroundColor = 'green'
         key4.style.backgroundColor = 'green'
         key7.style.backgroundColor = 'green'
@@ -119,8 +124,9 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
-    if(key2.innerText != '' && key2.innerText == key5.innerText && key2.innerText == key8.innerText){
+    if(!gameOver && key2.innerText != '' && key2.innerText == key5.innerText && key2.innerText == key8.innerText){
         key2.style.backgroundColor = 'green'
         key5.style.backgroundColor = 'green'
         key8.style.backgroundColor = 'green'
@@ -129,8 +135,9 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
-    if(key3.innerText != '' && key3.innerText == key6.innerText && key3.innerText == key9.innerText){
+    if(!gameOver && key3.innerText != '' && key3.innerText == key6.innerText && key3.innerText == key9.innerText){
         key3.style.backgroundColor = 'green'
         key6.style.backgroundColor = 'green'
         key9.style.backgroundColor = 'green'
@@ -139,10 +146,11 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
 
     /*Checking diagonal wins*/
-    if(key1.innerText != '' && key1.innerText == key5.innerText && key1.innerText == key9.innerText){
+    if(!gameOver && key1.innerText != '' && key1.innerText == key5.innerText && key1.innerText == key9.innerText){
         key1.style.backgroundColor = 'green'
         key5.style.backgroundColor = 'green'
         key9.style.backgroundColor = 'green'
@@ -151,9 +159,10 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
 
-    if(key3.innerText != '' && key3.innerText == key5.innerText && key3.innerText == key7.innerText){
+    if(!gameOver && key3.innerText != '' && key3.innerText == key5.innerText && key3.innerText == key7.innerText){
         key3.style.backgroundColor = 'green'
         key5.style.backgroundColor = 'green'
         key7.style.backgroundColor = 'green'
@@ -162,10 +171,11 @@ function checkWinner(currentPlayer){
         result.innerText = `${currentPlayer} wins!`
         turn.innerText = 'We have a winner!'
         countTurns = 0
+        gameOver = true
     }
 
     /*Checking draw*/
-    if(countTurns === 9){
+    if(!gameOver && countTurns === 9){
         countTurns = 0
         result.innerText = `It's a `
         const span = document.createElement('span')
@@ -177,6 +187,7 @@ function checkWinner(currentPlayer){
         keys.forEach(function(key){
             key.style.backgroundColor = 'var(--draw-color)'
         })
+        gameOver = true
     }
 }
 
