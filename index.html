@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="_images/tic_tac_toe.png" type="">
+    <title>Tic-tac-toe</title>
+</head>
+<body>
+    <h1><a href="./index.html">Tic-tac-toe</a></h1>
+
+    <div id="player1-div" class="nameDiv">
+        <label for="player1-name">Player 1: </label>
+        <input type="text" name="player1-name" id="player1-name" class="input" placeholder="X">
+    </div>
+
+    <div id="player2-div" class="nameDiv">
+        <label for="player2-name">Player 2:</label>
+        <input type="text" name="player2-name" id="player2-name" class="input" placeholder="O">
+    </div>
+
+    <button id= "start-btn" class="go-btn">Start game!</button>
+    <p id="turn"></p>
+
+    <div id="tic-tac-toe" class="tic-tac-toe">
+        <button type="button" class="keys" id="key1" data-value="1"></button>
+        <button type="button" class="keys" id="key2" data-value="2"></button>
+        <button type="button" class="keys" id="key3" data-value="3"></button>
+        <button type="button" class="keys" id="key4" data-value="4"></button>
+        <button type="button" class="keys" id="key5" data-value="5"></button>
+        <button type="button" class="keys" id="key6" data-value="6"></button>
+        <button type="button" class="keys" id="key7" data-value="7"></button>
+        <button type="button" class="keys" id="key8" data-value="8"></button>
+        <button type="button" class="keys" id="key9" data-value="9"></button>
+    </div>
+
+    <p id="result-text"></p>
+    <button id="restart-btn" class="go-btn">Play again!</button>
+</body>
+</html>
